@@ -6,9 +6,6 @@
   row-gap: 24px;
 }
 
-.heading {
-  margin-bottom: 12px;
-}
 
 /* PRODUCT CARDS  */
 .card {
@@ -47,6 +44,9 @@
   font-weight: 400;
   font-size: 12px;
   margin-bottom: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .card__content {
   padding: 10.5px 4px 4px;
@@ -93,28 +93,92 @@
 }
 /* HEADER  */
 .header{
-  /* border: 3px solid blue; */
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin-bottom: 16px;
 }
-
+.headerTop{
+  display: flex;
+  align-items: center;
+}
 .logo {
   width: 220px;
   height: 32px;
   cursor: pointer;
+  margin-right: 24px;
 }
 .katalog{
-  display: none;
   padding: 8px 12px;
   font-weight: 500;
-  background-color: rgb(0, 0, 255, 0.1);
+  color: #7000ff;
+  background-color: #eaeaf9;
   border-radius: 5px;
   text-transform: capitalize;
+  margin-right: 8px;
+}
+.katalog:hover{
+  background-color: rgb(112, 0, 255, 0.15);
+}
+.inputWrapper{
+  position: relative;
+  width: 505px;
+  margin-right: 24px;
+}
+input{
+  background: #fff;
+  border: 1px solid  #36363633;
+  border-radius: 4px;
+  box-shadow: 0 0 0 0 #36363633,0 0 0 0 rgb(54, 54, 54, 0.8);
+  color: #1f2026;
+  font-family: Inter, sans-serif;
+  font-size: .875rem;
+  font-weight: 400;
+  height: 100%;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  transition: box-shadow .2s ease;
+  vertical-align: top;
+  width: 100%;
+}
+.search{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(219, 219, 219, 0.8);
+  cursor: pointer;
+}
+.search:active{
+  opacity: 0.7;
 }
 
-
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  height: 100%;
+}
+.btn:hover{
+  background-color: rgba(219, 219, 219, 0.2);
+}
 /* RESPONSIVE */
+@media only screen and (max-width: 1000px){
+  .inputWrapper{
+display: none;
+  }
+}
+@media only screen and (max-width: 680px){
+.headerTop{
+  flex-direction: column;
+}
+}
+
 @media only screen and (min-width: 750px){
   .products {
     grid-template-columns: repeat(3, 1fr);
@@ -124,9 +188,24 @@
   .products {
     grid-template-columns: repeat(4, 1fr);
   }
+  .card__title {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .card__price span:nth-child(1) {
+    color: rgb(139, 142, 153);
+    text-decoration: line-through;
+    font-size: 14px;
+  }
+  .card__price span:nth-child(2) {
+    font-weight: 500;
+    font-size: 16px;
+  }
 }
 @media only screen and (min-width: 1200px){
   .products {
     grid-template-columns: repeat(5, 1fr);
   }
+
 }
