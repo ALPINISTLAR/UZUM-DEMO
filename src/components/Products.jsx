@@ -22,7 +22,7 @@ const Products = () => {
       const data = await res.json();
 
       // Faqat 20 ta ma'lumotni olish
-      const limitedData = data.slice(0, 20);
+      const limitedData = data.slice(5, 20);
 
       // Olishgan ma'lumotlarni joylashtirish
       setProducts(limitedData);
